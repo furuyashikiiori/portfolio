@@ -10,10 +10,10 @@ const Navigation = () => {
 
   const handleNavClick = (href: string) => {
     // ホームページの場合はスムーズスクロール
-    if (pathname === '/' && href.startsWith('#')) {
+    if (pathname === "/" && href.startsWith("#")) {
       const element = document.querySelector(href);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
     setIsMenuOpen(false);
@@ -25,7 +25,7 @@ const Navigation = () => {
     { name: "スキル", href: "/skills" },
     { name: "プロジェクト", href: "/projects" },
     { name: "経歴", href: "/experience" },
-    { name: "お問い合わせ", href: "/contact" },
+    { name: "つながる", href: "/contact" },
   ];
 
   return (

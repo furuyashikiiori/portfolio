@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ProfileImage from "../components/ProfileImage";
+import SocialLinks from "../components/SocialLinks";
 
 export default function Home() {
   const featuredProjects = [
@@ -127,6 +128,12 @@ export default function Home() {
                 <span className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'>
                   継続学習者
                 </span>
+              </div>
+
+              {/* SNS Links */}
+              <div className="mb-4">
+                <h4 className='text-lg font-semibold text-gray-900 mb-2'>SNS</h4>
+                <SocialLinks variant="minimal" />
               </div>
             </div>
           </div>

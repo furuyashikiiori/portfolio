@@ -1,4 +1,5 @@
 import ProfileImage from "../../components/ProfileImage";
+import SocialLinks from "../../components/SocialLinks";
 
 export default function About() {
   return (
@@ -10,7 +11,7 @@ export default function About() {
 
         <div className='grid md:grid-cols-2 gap-12 items-center mb-16'>
           <div>
-            <ProfileImage size="large" />
+            <ProfileImage size='large' />
           </div>
 
           <div>
@@ -26,7 +27,7 @@ export default function About() {
               コーディングをしていない時は、新しい技術を探求したり、オープンソースプロジェクトに
               貢献したり、開発者コミュニティと知識を共有したりしています。
             </p>
-            <div className='flex flex-wrap gap-3'>
+            <div className='flex flex-wrap gap-3 mb-6'>
               <span className='bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm'>
                 問題解決者
               </span>
@@ -36,6 +37,12 @@ export default function About() {
               <span className='bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm'>
                 継続学習者
               </span>
+            </div>
+
+            {/* SNS Links */}
+            <div>
+              <h4 className='text-lg font-semibold text-gray-900 mb-3'>SNS</h4>
+              <SocialLinks variant='default' />
             </div>
           </div>
         </div>
@@ -73,6 +80,19 @@ export default function About() {
             協力することにワクワクしています。あなたのビジョンをどのように
             実現できるか、話し合いましょう。
           </p>
+        </div>
+
+        {/* Large SNS Links Section */}
+        <div className='mt-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 text-center'>
+          <h3 className='text-xl font-semibold text-gray-900 mb-4'>
+            各プラットフォームでつながりましょう
+          </h3>
+          <p className='text-gray-600 mb-6 max-w-xl mx-auto'>
+            お気軽にフォローやコンタクトをお送りください！
+          </p>
+          <div className='flex justify-center'>
+            <SocialLinks variant='large' />
+          </div>
         </div>
       </div>
     </div>
