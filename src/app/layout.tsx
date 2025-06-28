@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,12 +28,14 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 font-ja`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-ja`}
       >
         <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <AnimatedBackground variant="subtle">
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </AnimatedBackground>
       </body>
     </html>
   );

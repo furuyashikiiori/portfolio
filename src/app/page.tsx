@@ -3,6 +3,7 @@
 import Link from "next/link";
 import ProfileImage from "../components/ProfileImage";
 import SocialLinks from "../components/SocialLinks";
+import AnimatedBackground from "../components/AnimatedBackground";
 
 export default function Home() {
   const featuredProjects = [
@@ -62,41 +63,43 @@ export default function Home() {
   return (
     <div className='container mx-auto px-4'>
       {/* Hero Section */}
-      <section id="hero" className='text-center py-20 min-h-screen flex items-center'>
-        <div className='max-w-4xl mx-auto'>
-          <h1 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6'>
-            Hello! <span className='text-primary-600'>ORI</span>
-            です
-          </h1>
-          <p className='text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed'>
-            ここは僕のポートフォリオサイトです。
-            <br />
-            これまでに手がけた制作物、身につけたスキルをまとめてます！
-          </p>
-          <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <a
-              href='#projects'
-              className='bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              作品を見る
-            </a>
-            <a
-              href='#contact'
-              className='border-2 border-primary-600 text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-colors'
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              お問い合わせ
-            </a>
+      <AnimatedBackground variant="hero">
+        <section id="hero" className='text-center py-20 min-h-screen flex items-center'>
+          <div className='max-w-4xl mx-auto'>
+            <h1 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6'>
+              Hello! <span className='text-cyan-600'>ORI</span>
+              です
+            </h1>
+            <p className='text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed'>
+              ここは僕のポートフォリオサイトです。
+              <br />
+              これまでに手がけた制作物、身につけたスキルをまとめてます！
+            </p>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+              <a
+                href='#projects'
+                className='bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                作品を見る
+              </a>
+              <a
+                href='#contact'
+                className='border-2 border-cyan-600 text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                お問い合わせ
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </AnimatedBackground>
 
       {/* About Section - Summary */}
       <section id="about" className='py-16'>
@@ -153,7 +156,8 @@ export default function Home() {
       </section>
 
       {/* Skills Section - Summary */}
-      <section id="skills" className='py-16 bg-gray-50'>
+      <AnimatedBackground variant="section">
+        <section id="skills" className='py-16'>
         <div className='max-w-4xl mx-auto'>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
             主要スキル
@@ -181,7 +185,8 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+        </section>
+      </AnimatedBackground>
 
       {/* Projects Section - Summary */}
       <section id="projects" className='py-16'>
@@ -232,7 +237,8 @@ export default function Home() {
       </section>
 
       {/* Experience Section - Summary */}
-      <section id="experience" className='py-16 bg-gray-50'>
+      <AnimatedBackground variant="section">
+        <section id="experience" className='py-16'>
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
             現在の職歴
@@ -266,7 +272,8 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+        </section>
+      </AnimatedBackground>
 
       {/* Contact Section - Summary */}
       <section id="contact" className='py-16'>
