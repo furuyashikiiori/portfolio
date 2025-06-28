@@ -1,3 +1,5 @@
+import ProfileImage from "../../components/ProfileImage";
+
 export default function About() {
   return (
     <div className='container mx-auto px-4 py-16'>
@@ -8,9 +10,7 @@ export default function About() {
 
         <div className='grid md:grid-cols-2 gap-12 items-center mb-16'>
           <div>
-            <div className='w-64 h-64 bg-primary-200 rounded-full mx-auto flex items-center justify-center'>
-              <span className='text-6xl text-primary-600'>👨‍💻</span>
-            </div>
+            <ProfileImage size="large" />
           </div>
 
           <div>

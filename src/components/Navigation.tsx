@@ -8,6 +8,17 @@ const Navigation = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleNavClick = (href: string) => {
+    // ホームページの場合はスムーズスクロール
+    if (pathname === '/' && href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setIsMenuOpen(false);
+  };
+
   const navItems = [
     { name: "ホーム", href: "/" },
     { name: "プロフィール", href: "/about" },
@@ -39,6 +50,7 @@ const Navigation = () => {
                     ? "text-primary-600 bg-primary-50"
                     : "text-gray-700 hover:text-primary-600 hover:bg-primary-50"
                 }`}
+                onClick={() => handleNavClick(item.href)}
               >
                 {item.name}
               </Link>
@@ -89,7 +101,7 @@ const Navigation = () => {
                     ? "text-primary-600 bg-primary-50"
                     : "text-gray-700 hover:text-primary-600 hover:bg-primary-50"
                 }`}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleNavClick(item.href)}
               >
                 {item.name}
               </Link>
