@@ -1,39 +1,6 @@
+import { skillsData } from "../../data/skills";
+
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: "フロントエンド開発",
-      skills: [
-        { name: "React", level: 90 },
-        { name: "Next.js", level: 85 },
-        { name: "TypeScript", level: 88 },
-        { name: "Tailwind CSS", level: 92 },
-        { name: "HTML5", level: 95 },
-        { name: "CSS3", level: 90 },
-      ]
-    },
-    {
-      title: "バックエンド開発",
-      skills: [
-        { name: "Node.js", level: 85 },
-        { name: "Express.js", level: 80 },
-        { name: "PostgreSQL", level: 75 },
-        { name: "MongoDB", level: 78 },
-        { name: "REST APIs", level: 88 },
-        { name: "GraphQL", level: 70 },
-      ]
-    },
-    {
-      title: "ツールと技術",
-      skills: [
-        { name: "Git", level: 90 },
-        { name: "Docker", level: 75 },
-        { name: "AWS", level: 70 },
-        { name: "Vercel", level: 85 },
-        { name: "Jest", level: 80 },
-        { name: "Webpack", level: 75 },
-      ]
-    }
-  ];
 
   const SkillBar = ({ name, level }: { name: string; level: number }) => (
     <div className="mb-4">
@@ -56,14 +23,15 @@ export default function Skills() {
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
           スキルと技術
         </h1>
-        
+
         <p className="text-xl text-gray-600 mb-16 text-center max-w-3xl mx-auto">
-          私は新しい技術を学び、常にスキルを向上させることに情熱を注いでいます。
-          こちらは私の技術的専門知識の概要です。
+          私は新しい技術を学び、スキルを向上させることに情熱を注いでいます。
+          <br />
+          こちらは私のスキルや技術の概要です。
         </p>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {skillCategories.map((category, index) => (
+          {skillsData.categories.map((category, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">
                 {category.title}
@@ -86,14 +54,12 @@ export default function Skills() {
               現在学習中
             </h3>
             <ul className="text-gray-600 space-y-2">
-              <li>• Pythonでの機械学習</li>
-              <li>• サーバーレスアーキテクチャ</li>
-              <li>• 高度なReactパターン</li>
-              <li>• DevOpsとCI/CD</li>
-              <li>• React Nativeでのモバイル開発</li>
+              {skillsData.learningSkills.map((skill, index) => (
+                <li key={index}>• {skill}</li>
+              ))}
             </ul>
           </div>
-          
+
           <div className="bg-white p-6 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
               <svg className="w-6 h-6 text-primary-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,23 +68,19 @@ export default function Skills() {
               ソフトスキル
             </h3>
             <ul className="text-gray-600 space-y-2">
-              <li>• 問題解決</li>
-              <li>• チームコラボレーション</li>
-              <li>• プロジェクト管理</li>
-              <li>• 技術ライティング</li>
-              <li>• コードレビューとメンタリング</li>
+              {skillsData.softSkills.map((skill, index) => (
+                <li key={index}>• {skill}</li>
+              ))}
             </ul>
           </div>
         </div>
 
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-            常に成長中
+            学び続ける
           </h3>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            技術は急速に進化しており、私は継続的な学習を信条としています。
-            定期的にワークショップに参加し、オープンソースプロジェクトに貢献し、
-            新しい技術を実験して、開発の最前線にいるようにしています。
+            youtubeやオンラインコースを通じて新しい技術を学び続けています。
           </p>
         </div>
       </div>

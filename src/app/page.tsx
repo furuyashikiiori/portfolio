@@ -4,46 +4,12 @@ import Link from "next/link";
 import ProfileImage from "../components/ProfileImage";
 import SocialLinks from "../components/SocialLinks";
 import AnimatedBackground from "../components/AnimatedBackground";
+import { profileData } from "../data/profile";
+import { skillsData } from "../data/skills";
+import { projectsData } from "../data/projects";
+import { experienceData } from "../data/experience";
 
 export default function Home() {
-  const featuredProjects = [
-    {
-      id: 1,
-      title: "ECプラットフォーム",
-      description: "Next.jsで構築されたモダンなECプラットフォーム",
-      image: "🛒",
-      technologies: ["Next.js", "TypeScript", "Stripe"]
-    },
-    {
-      id: 2,
-      title: "タスク管理アプリ",
-      description: "リアルタイム更新機能を備えた協働アプリ",
-      image: "📋",
-      technologies: ["React", "Node.js", "Socket.io"]
-    },
-    {
-      id: 3,
-      title: "天気ダッシュボード",
-      description: "インタラクティブチャートで気象情報を表示",
-      image: "🌤️",
-      technologies: ["React", "Chart.js", "API"]
-    }
-  ];
-
-  const topSkills = [
-    { name: "React", level: 90 },
-    { name: "Next.js", level: 85 },
-    { name: "TypeScript", level: 88 },
-    { name: "Node.js", level: 85 },
-    { name: "Tailwind CSS", level: 92 },
-    { name: "PostgreSQL", level: 75 }
-  ];
-
-  const recentExperience = {
-    title: "シニアフロントエンド開発者",
-    company: "Tech Innovation Inc.",
-    period: "2022年 - 現在"
-  };
 
   const SkillBar = ({ name, level }: { name: string; level: number }) => (
     <div className="mb-3">
@@ -67,11 +33,11 @@ export default function Home() {
         <section id="hero" className='text-center py-20 min-h-screen flex items-center'>
           <div className='max-w-4xl mx-auto'>
             <h1 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6'>
-              Hello! <span className='text-cyan-600'>ORI</span>
+              Hello! <span className='text-cyan-600'>{profileData.name}</span>
               です
             </h1>
             <p className='text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed'>
-              ここは僕のポートフォリオサイトです。
+              ここは私のポートフォリオサイトです。
               <br />
               これまでに手がけた制作物、身につけたスキルをまとめてます！
             </p>
@@ -115,22 +81,17 @@ export default function Home() {
 
             <div>
               <h3 className='text-xl font-semibold text-gray-900 mb-3'>
-                情熱的な開発者
+                {profileData.title}
               </h3>
               <p className='text-gray-600 mb-4 leading-relaxed'>
-                私は革新的なデジタルソリューションの創造に情熱を注ぐ、献身的なフルスタック開発者です。
-                モダンなWeb技術の専門知識を持ち、複雑な問題をシンプルで美しいデザインに変換します。
+                {profileData.shortDescription}
               </p>
               <div className='flex flex-wrap gap-2 mb-4'>
-                <span className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'>
-                  問題解決者
-                </span>
-                <span className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'>
-                  チームプレイヤー
-                </span>
-                <span className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'>
-                  継続学習者
-                </span>
+                {profileData.tags.map((tag, index) => (
+                  <span key={index} className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'>
+                    {tag}
+                  </span>
+                ))}
               </div>
 
               {/* SNS Links */}
@@ -158,33 +119,33 @@ export default function Home() {
       {/* Skills Section - Summary */}
       <AnimatedBackground variant="section">
         <section id="skills" className='py-16'>
-        <div className='max-w-4xl mx-auto'>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            主要スキル
-          </h2>
-          
-          <p className="text-lg text-gray-600 mb-8 text-center">
-            現在重点的に取り組んでいる技術スタックです。
-          </p>
+          <div className='max-w-4xl mx-auto'>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+              主要スキル
+            </h2>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            {topSkills.map((skill, index) => (
-              <SkillBar key={index} name={skill.name} level={skill.level} />
-            ))}
-          </div>
+            <p className="text-lg text-gray-600 mb-8 text-center">
+              現在重点的に取り組んでいる技術スタックです。
+            </p>
 
-          <div className="text-center">
-            <Link
-              href='/skills'
-              className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
-            >
-              全スキルを見る
-              <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-              </svg>
-            </Link>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {skillsData.topSkills.map((skill, index) => (
+                <SkillBar key={index} name={skill.name} level={skill.level} />
+              ))}
+            </div>
+
+            <div className="text-center">
+              <Link
+                href='/skills'
+                className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
+              >
+                全スキルを見る
+                <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+                </svg>
+              </Link>
+            </div>
           </div>
-        </div>
         </section>
       </AnimatedBackground>
 
@@ -194,19 +155,19 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
             注目プロジェクト
           </h2>
-          
+
           <p className="text-lg text-gray-600 mb-8 text-center">
             最近手がけた代表的なプロジェクトをご紹介します。
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {featuredProjects.map((project) => (
+            {projectsData.featuredProjects.map((project) => (
               <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
                 <div className="p-6">
                   <div className="text-4xl mb-3 text-center">{project.image}</div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">{project.title}</h3>
                   <p className="text-gray-600 mb-3 text-sm leading-relaxed">{project.description}</p>
-                  
+
                   <div className="flex flex-wrap gap-1 mb-3">
                     {project.technologies.map((tech, index) => (
                       <span
@@ -239,39 +200,38 @@ export default function Home() {
       {/* Experience Section - Summary */}
       <AnimatedBackground variant="section">
         <section id="experience" className='py-16'>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-            現在の職歴
-          </h2>
-          
-          <p className="text-lg text-gray-600 mb-8 text-center">
-            現在従事している主な業務についてご紹介します。
-          </p>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+              現在の職歴
+            </h2>
 
-          <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-            <div className="text-center mb-4">
-              <h3 className="text-xl font-semibold text-gray-900">{recentExperience.title}</h3>
-              <p className="text-primary-600 font-medium">{recentExperience.company}</p>
-              <p className="text-gray-600">{recentExperience.period}</p>
-            </div>
-            <p className="text-gray-600 text-center">
-              ReactとNext.jsを使用したレスポンシブWebアプリケーションの開発をリードし、
-              クロスファンクショナルチームと協力して高品質な製品を提供しています。
+            <p className="text-lg text-gray-600 mb-8 text-center">
+              現在従事している主な業務についてご紹介します。
             </p>
-          </div>
 
-          <div className="text-center">
-            <Link
-              href='/experience'
-              className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
-            >
-              詳しい経歴を見る
-              <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-              </svg>
-            </Link>
+            <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+              <div className="text-center mb-4">
+                <h3 className="text-xl font-semibold text-gray-900">{experienceData.currentPosition.title}</h3>
+                <p className="text-primary-600 font-medium">{experienceData.currentPosition.company}</p>
+                <p className="text-gray-600">{experienceData.currentPosition.period}</p>
+              </div>
+              <p className="text-gray-600 text-center">
+                {experienceData.currentPosition.description}
+              </p>
+            </div>
+
+            <div className="text-center">
+              <Link
+                href='/experience'
+                className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
+              >
+                詳しい経歴を見る
+                <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+                </svg>
+              </Link>
+            </div>
           </div>
-        </div>
         </section>
       </AnimatedBackground>
 
@@ -288,7 +248,7 @@ export default function Home() {
 
           <div className='grid md:grid-cols-2 gap-6 mb-8'>
             <a
-              href='mailto:2027furuyashikiiori@gmail.com'
+              href={`mailto:${profileData.email}`}
               className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
             >
               <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
@@ -298,12 +258,12 @@ export default function Home() {
               </div>
               <div className='ml-4'>
                 <h3 className='text-lg font-medium text-gray-900'>メール</h3>
-                <p className='text-gray-600 text-sm'>2027furuyashikiiori@gmail.com</p>
+                <p className='text-gray-600 text-sm'>{profileData.email}</p>
               </div>
             </a>
 
             <a
-              href='tel:+817021726882'
+              href={`tel:${profileData.phoneRaw}`}
               className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
             >
               <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
@@ -313,7 +273,7 @@ export default function Home() {
               </div>
               <div className='ml-4'>
                 <h3 className='text-lg font-medium text-gray-900'>電話</h3>
-                <p className='text-gray-600 text-sm'>+81 (70) 2172-6882</p>
+                <p className='text-gray-600 text-sm'>{profileData.phone}</p>
               </div>
             </a>
           </div>
