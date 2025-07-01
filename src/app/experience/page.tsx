@@ -3,86 +3,70 @@ import Timeline from "../../components/Timeline";
 export default function Experience() {
   const timelineItems = [
     {
-      date: "2022年 - 現在",
-      title: "シニアフロントエンド開発者",
-      subtitle: "Tech Innovation Inc. (リモート)",
+      date: "2025年6月",
+      title: "技育CAMP2025 Vol.4 努力賞 受賞",
+      subtitle: "異世界レシピ",
       description: [
-        "ReactとNext.jsを使用したレスポンシブWebアプリケーションの開発をリード",
-        "クロスファンクショナルチームと協力して高品質な製品を提供",
-        "ジュニア開発者のメンタリングとコードレビューを実施",
-        "最適化技術により、アプリケーションのパフォーマンスを40%向上"
+        "家にある食材だけで、存在しない国の伝統料理をGeminiが考案し、画像付きで提案してくれるサービス",
+        "例）じゃがいも、みそ、ヨーグルト → 「北東フェロー諸島・聖ミルダ神殿で朝に食される、冷製味噌ジャガカッテージポタージュ」",
+        "さらに、他のユーザーが生成した“空想グルメ”もSNS風に閲覧・共有可能。",
       ],
-      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "GraphQL"],
+      technologies: ["Next.js", "tailwindcss", "FastAPI", "Langn", "PostgreSQL", "Docker", "Gemini"],
       type: "work" as const
     },
     {
-      date: "2020年 - 2022年",
-      title: "フルスタック開発者",
-      subtitle: "Digital Solutions Ltd. (ニューヨーク州)",
+      date: "2024年7月 - 現在",
+      title: "やる気スイッチグループ Hallo 講師",
+      subtitle: "プログラミング教室",
       description: [
-        "フルスタックWebアプリケーションの開発と保守",
-        "Node.jsとExpress.jsを使用したRESTful APIの構築",
-        "データベース設計の実装とクエリの最適化",
-        "デザイナーと密接に協力してピクセルパーフェクトなUIを実装"
+        "小・中学生向けのプログラミング教育を担当",
+        "Pythonを使用した基礎的なプログラミングスキルの指導",
+        "生徒の興味を引き出すためのインタラクティブな授業を設計",
+        "生徒の理解度に応じた個別指導を実施"
       ],
-      technologies: ["React", "Node.js", "Express", "MongoDB", "PostgreSQL"],
+      technologies: ["Python"],
       type: "work" as const
     },
     {
-      date: "2019年 - 2020年",
-      title: "フロントエンド開発者",
-      subtitle: "Creative Agency Co. (カリフォルニア州サンフランシスコ)",
+      date: "2023年6月",
+      title: "武蔵野大学オープンキャンパス 研究発表",
+      subtitle: "画像認識パーソナルカラー診断システム",
       description: [
-        "レスポンシブWebサイトとWebアプリケーションの作成",
-        "デザインチームと協力してクリエイティブなソリューションを実装",
-        "パフォーマンスとSEOのためのWebサイト最適化",
-        "既存のクライアントWebサイトの保守と更新"
+        "初めての本格的な開発プロジェクト！",
+        "画像認識技術を用いたパーソナルカラー診断システムの開発",
+        "PythonとOpenCVを使用して画像処理アルゴリズムを実装",
+        "オープンキャンパスに来てくれた高校生に向けて研究内容を発表",
       ],
-      technologies: ["JavaScript", "HTML5", "CSS3", "Sass", "WordPress"],
+      technologies: ["Python"],
       type: "work" as const
     },
     {
-      date: "2018年 - 2019年",
-      title: "ジュニアWeb開発者",
-      subtitle: "Startup Hub (テキサス州オースティン)",
+      date: "2023年4月 - 現在",
+      title: "武蔵野大学",
+      subtitle: "データサイエンス学部データサイエンス学科",
       description: [
-        "WebアプリケーションとWebサイトの開発支援",
-        "現代的なWeb開発プラクティスの学習と適用",
-        "アジャイル開発プロセスへの参加",
-        "テストとデバッグ作業への貢献"
+        "データサイエンスと機械学習の基礎を学ぶ",
+        "Pythonを使用したデータ分析と可視化のプロジェクトに取り組む",
+        "チームプロジェクトでの協力とコミュニケーションスキルを向上",
       ],
-      technologies: ["JavaScript", "React", "HTML", "CSS", "Git"],
-      type: "work" as const
-    },
-    {
-      date: "2018年",
-      title: "フルスタックWeb開発ブートキャンプ",
-      subtitle: "コードアカデミー",
-      description: [
-        "モダンWeb開発技術とプラクティスをカバーする6ヶ月間の集中プログラム",
-        "実践的なプロジェクトを通じてフロントエンドとバックエンドの技術を習得"
-      ],
-      technologies: ["JavaScript", "React", "Node.js", "MongoDB", "Express"],
+      technologies: ["Python", "PHP"],
       type: "education" as const
     },
     {
-      date: "2014年 - 2018年",
-      title: "コンピューターサイエンス学士号",
-      subtitle: "工大大学",
+      date: "2020年4月 - 2023年3月",
+      title: "伊那北高等学校",
+      subtitle: "普通科",
       description: [
-        "優秀な成績で卒業。ソフトウェアエンジニアリングとWeb開発を専門",
-        "アルゴリズム、データ構造、ソフトウェア設計の基礎を学習",
-        "チームプロジェクトでのリーダーシップ経験を積む"
+        "理系を得意として、数学と物理に特に興味を持つ",
+        "バドミントン部に所属し、チームワークとリーダーシップを学ぶ",
       ],
       type: "education" as const
     }
   ];
 
   const certifications = [
-    "AWS認定デベロッパーアソシエイト",
-    "Reactデベロッパー認定", 
-    "Google Analytics認定",
-    "スクラムマスター認定"
+    "日本商工会議所主催 珠算能力検定試験1級（満点合格）",
+    "日本商工会議所主催 暗算検定試験1級",
   ];
 
   return (
@@ -91,9 +75,9 @@ export default function Experience() {
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
           経歴
         </h1>
-        
+
         <p className="text-xl text-gray-600 mb-16 text-center max-w-3xl mx-auto">
-          Web開発における私のプロフェッショナルな歩み。成長、学習、
+          私のこれまでの歩み。成長、学習、
           様々なプロジェクトやチームへの貢献を時系列でご紹介します。
         </p>
 
