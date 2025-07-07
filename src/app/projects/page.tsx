@@ -51,7 +51,7 @@ export default function Projects() {
       image: "🌤️",
       previewImage: "/images/projects/portfolio.png",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-      liveUrl: "http://localhost:3001/",
+      liveUrl: "http://furuyashikiiori.vercel.app",
       githubUrl: "https://github.com/furuyashikiiori/portfolio",
       featured: false,
       detailedDescription:
@@ -168,7 +168,7 @@ export default function Projects() {
             src={project.previewImage}
             alt={project.title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             className='object-cover'
             onError={(e) => {
               e.currentTarget.style.display = "none";
@@ -293,7 +293,7 @@ export default function Projects() {
               src={project.previewImage}
               alt={project.title}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw'
               className='object-cover rounded-lg'
               onError={(e) => {
                 e.currentTarget.style.display = "none";
