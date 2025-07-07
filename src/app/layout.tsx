@@ -52,7 +52,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-ja`}
       >
         <Navigation />
-        <AnimatedBackground variant='subtle'>
+        <AnimatedBackground variant='section'>
           <main className='min-h-screen'>{children}</main>
         </AnimatedBackground>
       </body>
