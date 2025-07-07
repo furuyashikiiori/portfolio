@@ -1,4 +1,10 @@
+"use client";
+
 import Timeline from "../../components/Timeline";
+import AnimatedSection from "../../components/AnimatedSection";
+import AnimatedCard from "../../components/AnimatedCard";
+import AnimatedText from "../../components/AnimatedText";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   const timelineItems = [
@@ -80,40 +86,53 @@ export default function Experience() {
   return (
     <div className='container mx-auto px-4 py-16'>
       <div className='max-w-6xl mx-auto'>
-        <h1 className='text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center'>
+        <AnimatedText className='text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center'>
           経歴
-        </h1>
+        </AnimatedText>
 
-        <p className='text-xl text-gray-600 mb-16 text-center max-w-3xl mx-auto'>
+        <AnimatedSection
+          delay={0.2}
+          className='text-xl text-gray-600 mb-16 text-center max-w-3xl mx-auto'
+        >
           私のこれまでの歩み。成長、学習、
           様々なプロジェクトやチームへの貢献を時系列でご紹介します。
-        </p>
+        </AnimatedSection>
 
         {/* Timeline */}
-        <div className='mb-16'>
+        <AnimatedSection delay={0.4} className='mb-16'>
           <Timeline items={timelineItems} />
-        </div>
+        </AnimatedSection>
 
         {/* Certifications */}
-        <div className='bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg p-8'>
+        <AnimatedCard
+          delay={0.6}
+          className='bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg p-8'
+        >
           <h2 className='text-3xl font-semibold text-gray-900 mb-6 text-center'>
             認定・資格
           </h2>
           <div className='grid md:grid-cols-2 gap-4 max-w-2xl mx-auto'>
             {certifications.map((cert, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
                 className='flex items-center bg-white p-4 rounded-lg shadow-sm'
               >
                 <div className='w-3 h-3 bg-green-500 rounded-full mr-3 flex-shrink-0'></div>
                 <span className='text-gray-700 font-medium'>{cert}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </AnimatedCard>
 
         {/* Call to action */}
-        <div className='mt-16 bg-white rounded-lg p-8 text-center shadow-md'>
+        <AnimatedCard
+          delay={0.8}
+          className='mt-16 bg-white rounded-lg p-8 text-center shadow-md'
+        >
           <h3 className='text-2xl font-semibold text-gray-900 mb-4'>
             新しい機会をお待ちしています
           </h3>
@@ -139,7 +158,7 @@ export default function Experience() {
               />
             </svg>
           </a>
-        </div>
+        </AnimatedCard>
       </div>
     </div>
   );
