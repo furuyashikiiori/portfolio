@@ -18,6 +18,27 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "古屋敷伊織-portfolio",
   description: "開発スキルとプロジェクトを紹介するポートフォリオ",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon-16x16.svg",
+        type: "image/svg+xml",
+        sizes: "16x16",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.svg",
+        type: "image/svg+xml",
+        sizes: "180x180",
+      },
+    ],
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
