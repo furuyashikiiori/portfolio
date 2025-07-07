@@ -10,16 +10,15 @@ import { projectsData } from "../data/projects";
 import { experienceData } from "../data/experience";
 
 export default function Home() {
-
   const SkillBar = ({ name, level }: { name: string; level: number }) => (
-    <div className="mb-3">
-      <div className="flex justify-between mb-1">
-        <span className="text-sm font-medium text-gray-700">{name}</span>
-        <span className="text-sm text-gray-500">{level}%</span>
+    <div className='mb-3'>
+      <div className='flex justify-between mb-1'>
+        <span className='text-sm font-medium text-gray-700'>{name}</span>
+        <span className='text-sm text-gray-500'>{level}%</span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-2">
+      <div className='w-full bg-gray-200 rounded-full h-2'>
         <div
-          className="bg-primary-600 h-2 rounded-full transition-all duration-1000"
+          className='bg-primary-600 h-2 rounded-full transition-all duration-1000'
           style={{ width: `${level}%` }}
         ></div>
       </div>
@@ -29,8 +28,11 @@ export default function Home() {
   return (
     <div className='container mx-auto px-4'>
       {/* Hero Section */}
-      <AnimatedBackground variant="hero">
-        <section id="hero" className='text-center py-20 min-h-screen flex items-center'>
+      <AnimatedBackground variant='hero'>
+        <section
+          id='hero'
+          className='text-center py-20 min-h-screen flex items-center'
+        >
           <div className='max-w-4xl mx-auto'>
             <h1 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6'>
               Hello! <span className='text-cyan-600'>{profileData.name}</span>
@@ -47,7 +49,9 @@ export default function Home() {
                 className='bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
                 onClick={(e) => {
                   e.preventDefault();
-                  document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .querySelector("#projects")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 作品を見る
@@ -57,7 +61,9 @@ export default function Home() {
                 className='border-2 border-cyan-600 text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
                 onClick={(e) => {
                   e.preventDefault();
-                  document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+                  document
+                    .querySelector("#contact")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 お問い合わせ
@@ -68,7 +74,7 @@ export default function Home() {
       </AnimatedBackground>
 
       {/* About Section - Summary */}
-      <section id="about" className='py-16'>
+      <section id='about' className='py-16'>
         <div className='max-w-4xl mx-auto'>
           <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
             About Me
@@ -76,7 +82,7 @@ export default function Home() {
 
           <div className='grid md:grid-cols-2 gap-8 items-center mb-8'>
             <div>
-              <ProfileImage size="small" />
+              <ProfileImage size='small' />
             </div>
 
             <div>
@@ -88,16 +94,21 @@ export default function Home() {
               </p>
               <div className='flex flex-wrap gap-2 mb-4'>
                 {profileData.tags.map((tag, index) => (
-                  <span key={index} className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'>
+                  <span
+                    key={index}
+                    className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'
+                  >
                     {tag}
                   </span>
                 ))}
               </div>
 
               {/* SNS Links */}
-              <div className="mb-4">
-                <h4 className='text-lg font-semibold text-gray-900 mb-2'>SNS</h4>
-                <SocialLinks variant="minimal" />
+              <div className='mb-4'>
+                <h4 className='text-lg font-semibold text-gray-900 mb-2'>
+                  SNS
+                </h4>
+                <SocialLinks variant='minimal' />
               </div>
             </div>
           </div>
@@ -108,8 +119,18 @@ export default function Home() {
               className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
             >
               詳しく見る
-              <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+              <svg
+                className='w-4 h-4 ml-2'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M9 5l7 7-7 7'
+                />
               </svg>
             </Link>
           </div>
@@ -117,31 +138,41 @@ export default function Home() {
       </section>
 
       {/* Skills Section - Summary */}
-      <AnimatedBackground variant="section">
-        <section id="skills" className='py-16'>
+      <AnimatedBackground variant='section'>
+        <section id='skills' className='py-16'>
           <div className='max-w-4xl mx-auto'>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
               主要スキル
             </h2>
 
-            <p className="text-lg text-gray-600 mb-8 text-center">
+            <p className='text-lg text-gray-600 mb-8 text-center'>
               現在重点的に取り組んでいる技術スタックです。
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className='grid md:grid-cols-2 gap-6 mb-8'>
               {skillsData.topSkills.map((skill, index) => (
                 <SkillBar key={index} name={skill.name} level={skill.level} />
               ))}
             </div>
 
-            <div className="text-center">
+            <div className='text-center'>
               <Link
                 href='/skills'
                 className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
               >
                 全スキルを見る
-                <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+                <svg
+                  className='w-4 h-4 ml-2'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M9 5l7 7-7 7'
+                  />
                 </svg>
               </Link>
             </div>
@@ -150,29 +181,51 @@ export default function Home() {
       </AnimatedBackground>
 
       {/* Projects Section - Summary */}
-      <section id="projects" className='py-16'>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+      <section id='projects' className='py-16'>
+        <div className='max-w-6xl mx-auto'>
+          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
             注目プロジェクト
           </h2>
 
-          <p className="text-lg text-gray-600 mb-8 text-center">
+          <p className='text-lg text-gray-600 mb-8 text-center'>
             最近手がけた代表的なプロジェクトをご紹介します。
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className='grid md:grid-cols-3 gap-6 mb-8'>
             {projectsData.featuredProjects.map((project) => (
-              <div key={project.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
-                <div className="p-6">
-                  <div className="text-4xl mb-3 text-center">{project.image}</div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-3 text-sm leading-relaxed">{project.description}</p>
+              <div
+                key={project.id}
+                className='bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105'
+              >
+                <div className='relative h-48 w-full'>
+                  <img
+                    src={project.previewImage}
+                    alt={project.title}
+                    className='w-full h-full object-cover'
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                      e.currentTarget.nextElementSibling?.classList.remove(
+                        "hidden"
+                      );
+                    }}
+                  />
+                  <div className='hidden absolute inset-0 flex items-center justify-center bg-gray-100'>
+                    <div className='text-6xl'>{project.image}</div>
+                  </div>
+                </div>
+                <div className='p-6'>
+                  <h3 className='text-lg font-semibold text-gray-900 mb-2'>
+                    {project.title}
+                  </h3>
+                  <p className='text-gray-600 mb-3 text-sm leading-relaxed'>
+                    {project.description}
+                  </p>
 
-                  <div className="flex flex-wrap gap-1 mb-3">
+                  <div className='flex flex-wrap gap-1 mb-3'>
                     {project.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="bg-primary-100 text-primary-800 px-2 py-1 rounded text-xs"
+                        className='bg-primary-100 text-primary-800 px-2 py-1 rounded text-xs'
                       >
                         {tech}
                       </span>
@@ -183,14 +236,24 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center">
+          <div className='text-center'>
             <Link
               href='/projects'
               className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
             >
               全プロジェクトを見る
-              <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+              <svg
+                className='w-4 h-4 ml-2'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M9 5l7 7-7 7'
+                />
               </svg>
             </Link>
           </div>
@@ -198,36 +261,52 @@ export default function Home() {
       </section>
 
       {/* Experience Section - Summary */}
-      <AnimatedBackground variant="section">
-        <section id="experience" className='py-16'>
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
+      <AnimatedBackground variant='section'>
+        <section id='experience' className='py-16'>
+          <div className='max-w-4xl mx-auto'>
+            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
               現在の職歴
             </h2>
 
-            <p className="text-lg text-gray-600 mb-8 text-center">
+            <p className='text-lg text-gray-600 mb-8 text-center'>
               現在従事している主な業務についてご紹介します。
             </p>
 
-            <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-              <div className="text-center mb-4">
-                <h3 className="text-xl font-semibold text-gray-900">{experienceData.currentPosition.title}</h3>
-                <p className="text-primary-600 font-medium">{experienceData.currentPosition.company}</p>
-                <p className="text-gray-600">{experienceData.currentPosition.period}</p>
+            <div className='bg-white p-6 rounded-lg shadow-md mb-8'>
+              <div className='text-center mb-4'>
+                <h3 className='text-xl font-semibold text-gray-900'>
+                  {experienceData.currentPosition.title}
+                </h3>
+                <p className='text-primary-600 font-medium'>
+                  {experienceData.currentPosition.company}
+                </p>
+                <p className='text-gray-600'>
+                  {experienceData.currentPosition.period}
+                </p>
               </div>
-              <p className="text-gray-600 text-center">
+              <p className='text-gray-600 text-center'>
                 {experienceData.currentPosition.description}
               </p>
             </div>
 
-            <div className="text-center">
+            <div className='text-center'>
               <Link
                 href='/experience'
                 className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
               >
                 詳しい経歴を見る
-                <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+                <svg
+                  className='w-4 h-4 ml-2'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M9 5l7 7-7 7'
+                  />
                 </svg>
               </Link>
             </div>
@@ -236,7 +315,7 @@ export default function Home() {
       </AnimatedBackground>
 
       {/* Contact Section - Summary */}
-      <section id="contact" className='py-16'>
+      <section id='contact' className='py-16'>
         <div className='max-w-4xl mx-auto'>
           <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
             お問い合わせ
@@ -252,8 +331,18 @@ export default function Home() {
               className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
             >
               <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
-                <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' />
+                <svg
+                  className='w-6 h-6'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                  />
                 </svg>
               </div>
               <div className='ml-4'>
@@ -267,8 +356,18 @@ export default function Home() {
               className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
             >
               <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
-                <svg className='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' />
+                <svg
+                  className='w-6 h-6'
+                  fill='none'
+                  stroke='currentColor'
+                  viewBox='0 0 24 24'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    strokeWidth={2}
+                    d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
+                  />
                 </svg>
               </div>
               <div className='ml-4'>
@@ -278,14 +377,24 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="text-center">
+          <div className='text-center'>
             <Link
               href='/contact'
               className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
             >
               詳細なお問い合わせフォーム
-              <svg className='w-4 h-4 ml-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+              <svg
+                className='w-4 h-4 ml-2'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+              >
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M9 5l7 7-7 7'
+                />
               </svg>
             </Link>
           </div>
