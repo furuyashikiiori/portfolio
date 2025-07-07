@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -29,87 +30,114 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className='bg-white shadow-lg sticky top-0 z-50'>
+    <motion.nav
+      className='bg-white shadow-lg sticky top-0 z-50'
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between h-16'>
           <div className='flex items-center'>
             <Link href='/' className='flex-shrink-0 flex items-center'>
-              <span className='text-2xl font-bold text-primary-600'>
+              <motion.span
+                className='text-2xl font-bold text-primary-600'
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 ポートフォリオ
-              </span>
+              </motion.span>
             </Link>
           </div>
 
           <div className='hidden md:flex items-center space-x-8'>
-            {navItems.map((item) => (
-              <Link
+            {navItems.map((item, index) => (
+              <motion.div
                 key={item.name}
-                href={item.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  pathname === item.href
-                    ? "text-primary-600 bg-primary-50"
-                    : "text-gray-700 hover:text-primary-600 hover:bg-primary-50"
-                }`}
-                onClick={() => handleNavClick(item.href)}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
               >
-                {item.name}
-              </Link>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    href={item.href}
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      pathname === item.href
+                        ? "text-primary-600 bg-primary-50"
+                        : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                    }`}
+                    onClick={() => handleNavClick(item.href)}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
 
+          {/* Mobile menu button */}
           <div className='md:hidden flex items-center'>
-            <button
+            <motion.button
+              className='text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600'
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100'
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <svg
                 className='h-6 w-6'
-                stroke='currentColor'
                 fill='none'
                 viewBox='0 0 24 24'
+                stroke='currentColor'
               >
-                {isMenuOpen ? (
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M6 18L18 6M6 6l12 12'
-                  />
-                ) : (
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M4 6h16M4 12h16M4 18h16'
-                  />
-                )}
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth={2}
+                  d='M4 6h16M4 12h16M4 18h16'
+                />
               </svg>
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div className='md:hidden'>
-          <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t'>
-            {navItems.map((item) => (
+      {/* Mobile menu */}
+      <motion.div
+        className={`md:hidden ${isMenuOpen ? "block" : "hidden"}`}
+        initial={{ opacity: 0, height: 0 }}
+        animate={{
+          opacity: isMenuOpen ? 1 : 0,
+          height: isMenuOpen ? "auto" : 0,
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg'>
+          {navItems.map((item, index) => (
+            <motion.div
+              key={item.name}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
               <Link
-                key={item.name}
                 href={item.href}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                   pathname === item.href
                     ? "text-primary-600 bg-primary-50"
-                    : "text-gray-700 hover:text-primary-600 hover:bg-primary-50"
+                    : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                 }`}
                 onClick={() => handleNavClick(item.href)}
               >
                 {item.name}
               </Link>
-            ))}
-          </div>
+            </motion.div>
+          ))}
         </div>
-      )}
-    </nav>
+      </motion.div>
+    </motion.nav>
   );
 };
 

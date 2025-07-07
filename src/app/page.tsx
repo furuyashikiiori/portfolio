@@ -4,25 +4,38 @@ import Link from "next/link";
 import ProfileImage from "../components/ProfileImage";
 import SocialLinks from "../components/SocialLinks";
 import AnimatedBackground from "../components/AnimatedBackground";
+import AnimatedSection from "../components/AnimatedSection";
+import AnimatedCard from "../components/AnimatedCard";
+import AnimatedText from "../components/AnimatedText";
 import { profileData } from "../data/profile";
 import { skillsData } from "../data/skills";
 import { projectsData } from "../data/projects";
 import { experienceData } from "../data/experience";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const SkillBar = ({ name, level }: { name: string; level: number }) => (
-    <div className='mb-3'>
+    <motion.div
+      className='mb-3'
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className='flex justify-between mb-1'>
         <span className='text-sm font-medium text-gray-700'>{name}</span>
         <span className='text-sm text-gray-500'>{level}%</span>
       </div>
       <div className='w-full bg-gray-200 rounded-full h-2'>
-        <div
-          className='bg-primary-600 h-2 rounded-full transition-all duration-1000'
-          style={{ width: `${level}%` }}
-        ></div>
+        <motion.div
+          className='bg-primary-600 h-2 rounded-full'
+          initial={{ width: 0 }}
+          whileInView={{ width: `${level}%` }}
+          transition={{ duration: 1.2, delay: 0.3 }}
+          viewport={{ once: true }}
+        />
       </div>
-    </div>
+    </motion.div>
   );
 
   return (
@@ -34,19 +47,27 @@ export default function Home() {
           className='text-center py-20 min-h-screen flex items-center'
         >
           <div className='max-w-4xl mx-auto'>
-            <h1 className='text-5xl md:text-6xl font-bold text-gray-900 mb-6'>
+            <AnimatedText className='text-5xl md:text-6xl font-bold text-gray-900 mb-6'>
               Hello! <span className='text-cyan-600'>{profileData.name}</span>
               です
-            </h1>
-            <p className='text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed'>
+            </AnimatedText>
+            <AnimatedSection
+              delay={0.3}
+              className='text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed'
+            >
               ここは私のポートフォリオサイトです。
               <br />
               これまでに手がけた制作物、身につけたスキルをまとめてます！
-            </p>
-            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-              <a
+            </AnimatedSection>
+            <AnimatedSection
+              delay={0.6}
+              className='flex flex-col sm:flex-row gap-4 justify-center'
+            >
+              <motion.a
                 href='#projects'
-                className='bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                className='bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl'
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={(e) => {
                   e.preventDefault();
                   document
@@ -55,10 +76,12 @@ export default function Home() {
                 }}
               >
                 作品を見る
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href='#contact'
-                className='border-2 border-cyan-600 text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                className='border-2 border-cyan-600 text-cyan-600 px-8 py-3 rounded-lg font-semibold hover:bg-cyan-50 transition-all duration-300 shadow-lg hover:shadow-xl'
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={(e) => {
                   e.preventDefault();
                   document
@@ -67,8 +90,8 @@ export default function Home() {
                 }}
               >
                 お問い合わせ
-              </a>
-            </div>
+              </motion.a>
+            </AnimatedSection>
           </div>
         </section>
       </AnimatedBackground>
@@ -76,16 +99,16 @@ export default function Home() {
       {/* About Section - Summary */}
       <section id='about' className='py-16'>
         <div className='max-w-4xl mx-auto'>
-          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
+          <AnimatedText className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
             About Me
-          </h2>
+          </AnimatedText>
 
           <div className='grid md:grid-cols-2 gap-8 items-center mb-8'>
-            <div>
+            <AnimatedSection delay={0.2}>
               <ProfileImage size='small' />
-            </div>
+            </AnimatedSection>
 
-            <div>
+            <AnimatedSection delay={0.4}>
               <h3 className='text-xl font-semibold text-gray-900 mb-3'>
                 {profileData.title}
               </h3>
@@ -94,12 +117,16 @@ export default function Home() {
               </p>
               <div className='flex flex-wrap gap-2 mb-4'>
                 {profileData.tags.map((tag, index) => (
-                  <span
+                  <motion.span
                     key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
                     className='bg-primary-100 text-primary-800 px-2 py-1 rounded-full text-sm'
                   >
                     {tag}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
 
@@ -110,10 +137,10 @@ export default function Home() {
                 </h4>
                 <SocialLinks variant='minimal' />
               </div>
-            </div>
+            </AnimatedSection>
           </div>
 
-          <div className='text-center'>
+          <AnimatedSection delay={0.6} className='text-center'>
             <Link
               href='/about'
               className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
@@ -133,7 +160,7 @@ export default function Home() {
                 />
               </svg>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -183,19 +210,23 @@ export default function Home() {
       {/* Projects Section - Summary */}
       <section id='projects' className='py-16'>
         <div className='max-w-6xl mx-auto'>
-          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
+          <AnimatedText className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
             注目プロジェクト
-          </h2>
+          </AnimatedText>
 
-          <p className='text-lg text-gray-600 mb-8 text-center'>
+          <AnimatedSection
+            delay={0.2}
+            className='text-lg text-gray-600 mb-8 text-center'
+          >
             最近手がけた代表的なプロジェクトをご紹介します。
-          </p>
+          </AnimatedSection>
 
           <div className='grid md:grid-cols-3 gap-6 mb-8'>
-            {projectsData.featuredProjects.map((project) => (
-              <div
+            {projectsData.featuredProjects.map((project, index) => (
+              <AnimatedCard
                 key={project.id}
-                className='bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105'
+                delay={index * 0.2}
+                className='bg-white rounded-lg shadow-md overflow-hidden'
               >
                 <div className='relative h-48 w-full'>
                   <img
@@ -222,21 +253,24 @@ export default function Home() {
                   </p>
 
                   <div className='flex flex-wrap gap-1 mb-3'>
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
+                    {project.technologies.map((tech, techIndex) => (
+                      <motion.span
+                        key={techIndex}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: techIndex * 0.1 }}
                         className='bg-primary-100 text-primary-800 px-2 py-1 rounded text-xs'
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </div>
-              </div>
+              </AnimatedCard>
             ))}
           </div>
 
-          <div className='text-center'>
+          <AnimatedSection delay={0.8} className='text-center'>
             <Link
               href='/projects'
               className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
@@ -256,7 +290,7 @@ export default function Home() {
                 />
               </svg>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -264,15 +298,21 @@ export default function Home() {
       <AnimatedBackground variant='section'>
         <section id='experience' className='py-16'>
           <div className='max-w-4xl mx-auto'>
-            <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
+            <AnimatedText className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
               現在の職歴
-            </h2>
+            </AnimatedText>
 
-            <p className='text-lg text-gray-600 mb-8 text-center'>
+            <AnimatedSection
+              delay={0.2}
+              className='text-lg text-gray-600 mb-8 text-center'
+            >
               現在従事している主な業務についてご紹介します。
-            </p>
+            </AnimatedSection>
 
-            <div className='bg-white p-6 rounded-lg shadow-md mb-8'>
+            <AnimatedCard
+              delay={0.4}
+              className='bg-white p-6 rounded-lg shadow-md mb-8'
+            >
               <div className='text-center mb-4'>
                 <h3 className='text-xl font-semibold text-gray-900'>
                   {experienceData.currentPosition.title}
@@ -287,9 +327,9 @@ export default function Home() {
               <p className='text-gray-600 text-center'>
                 {experienceData.currentPosition.description}
               </p>
-            </div>
+            </AnimatedCard>
 
-            <div className='text-center'>
+            <AnimatedSection delay={0.6} className='text-center'>
               <Link
                 href='/experience'
                 className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
@@ -309,7 +349,7 @@ export default function Home() {
                   />
                 </svg>
               </Link>
-            </div>
+            </AnimatedSection>
           </div>
         </section>
       </AnimatedBackground>
@@ -317,67 +357,74 @@ export default function Home() {
       {/* Contact Section - Summary */}
       <section id='contact' className='py-16'>
         <div className='max-w-4xl mx-auto'>
-          <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
+          <AnimatedText className='text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center'>
             お問い合わせ
-          </h2>
+          </AnimatedText>
 
-          <p className='text-lg text-gray-600 mb-8 text-center'>
+          <AnimatedSection
+            delay={0.2}
+            className='text-lg text-gray-600 mb-8 text-center'
+          >
             ご質問やご相談がございましたら、お気軽にお声がけください！
-          </p>
+          </AnimatedSection>
 
           <div className='grid md:grid-cols-2 gap-6 mb-8'>
-            <a
-              href={`mailto:${profileData.email}`}
-              className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
-            >
-              <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
-                <svg
-                  className='w-6 h-6'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-                  />
-                </svg>
-              </div>
-              <div className='ml-4'>
-                <h3 className='text-lg font-medium text-gray-900'>メール</h3>
-                <p className='text-gray-600 text-sm'>{profileData.email}</p>
-              </div>
-            </a>
+            <AnimatedCard delay={0.4}>
+              <a
+                href={`mailto:${profileData.email}`}
+                className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
+              >
+                <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
+                  <svg
+                    className='w-6 h-6'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                    />
+                  </svg>
+                </div>
+                <div className='ml-4'>
+                  <h3 className='text-lg font-medium text-gray-900'>メール</h3>
+                  <p className='text-gray-600 text-sm'>{profileData.email}</p>
+                </div>
+              </a>
+            </AnimatedCard>
 
-            <a
-              href={`tel:${profileData.phoneRaw}`}
-              className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
-            >
-              <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
-                <svg
-                  className='w-6 h-6'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
-                  />
-                </svg>
-              </div>
-              <div className='ml-4'>
-                <h3 className='text-lg font-medium text-gray-900'>電話</h3>
-                <p className='text-gray-600 text-sm'>{profileData.phone}</p>
-              </div>
-            </a>
+            <AnimatedCard delay={0.6}>
+              <a
+                href={`tel:${profileData.phoneRaw}`}
+                className='flex items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow'
+              >
+                <div className='flex-shrink-0 w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600'>
+                  <svg
+                    className='w-6 h-6'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
+                    />
+                  </svg>
+                </div>
+                <div className='ml-4'>
+                  <h3 className='text-lg font-medium text-gray-900'>電話</h3>
+                  <p className='text-gray-600 text-sm'>{profileData.phone}</p>
+                </div>
+              </a>
+            </AnimatedCard>
           </div>
 
-          <div className='text-center'>
+          <AnimatedSection delay={0.8} className='text-center'>
             <Link
               href='/contact'
               className='inline-flex items-center bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors'
@@ -397,7 +444,7 @@ export default function Home() {
                 />
               </svg>
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
     </div>
