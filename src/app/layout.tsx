@@ -16,8 +16,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ポートフォリオ - プロフェッショナル開発者",
-  description: "開発スキルとプロジェクトを紹介するプロフェッショナルポートフォリオ",
+  title: "古屋敷伊織-portfolio",
+  description: "開発スキルとプロジェクトを紹介するポートフォリオ",
 };
 
 export default function RootLayout({
@@ -26,15 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang='ja'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-ja`}
       >
         <Navigation />
-        <AnimatedBackground variant="subtle">
-          <main className="min-h-screen">
-            {children}
-          </main>
+        <AnimatedBackground variant='subtle'>
+          <main className='min-h-screen'>{children}</main>
         </AnimatedBackground>
       </body>
     </html>

@@ -6,6 +6,7 @@ export const projectsData = {
       title: "ECプラットフォーム",
       description: "Next.jsで構築されたモダンなECプラットフォーム",
       image: "🛒",
+      previewImage: "/images/projects/ec-platform-preview.jpg",
       technologies: ["Next.js", "TypeScript", "Stripe"]
     },
     {
@@ -13,6 +14,7 @@ export const projectsData = {
       title: "タスク管理アプリ",
       description: "リアルタイム更新機能を備えた協働アプリ",
       image: "📋",
+      previewImage: "/images/projects/task-manager-preview.jpg",
       technologies: ["React", "Node.js", "Socket.io"]
     },
     {
@@ -20,6 +22,7 @@ export const projectsData = {
       title: "天気ダッシュボード",
       description: "インタラクティブチャートで気象情報を表示",
       image: "🌤️",
+      previewImage: "/images/projects/weather-dashboard-preview.jpg",
       technologies: ["React", "Chart.js", "API"]
     }
   ]
