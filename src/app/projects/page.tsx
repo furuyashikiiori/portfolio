@@ -21,7 +21,7 @@ export default function Projects() {
       image: "🗺️",
       previewImage: "/images/projects/QRsona.png",
       technologies: ["Go", "Next.js", "Tailwind CSS", "supabase"],
-      liveUrl: "https://qrsona.vercel.app/",
+      liveUrl: "",
       githubUrl: "https://github.com/furuyashikiiori/camp-07",
       featured: true,
       detailedDescription:
