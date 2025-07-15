@@ -316,9 +316,35 @@ export default function Projects() {
             <h3 className='text-xl font-semibold text-gray-900 mb-2'>
               詳細説明
             </h3>
-            <p className='text-gray-600 leading-relaxed whitespace-pre-line'>
-              {project.detailedDescription}
-            </p>
+            <div className='text-gray-600 leading-relaxed whitespace-pre-line'>
+              {project.detailedDescription.split("\n").map((line, index) => {
+                // URLを検出してリンクにする
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                if (urlRegex.test(line)) {
+                  return (
+                    <div key={index}>
+                      {line.split(urlRegex).map((part, partIndex) => {
+                        if (urlRegex.test(part)) {
+                          return (
+                            <a
+                              key={partIndex}
+                              href={part}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                              className='text-blue-600 hover:text-blue-800 underline break-all'
+                            >
+                              {part}
+                            </a>
+                          );
+                        }
+                        return part;
+                      })}
+                    </div>
+                  );
+                }
+                return <div key={index}>{line}</div>;
+              })}
+            </div>
           </div>
 
           <div className='mb-6'>
