@@ -21,12 +21,12 @@ export default function Projects() {
       image: "🗺️",
       previewImage: "/images/projects/QRsona.png",
       technologies: ["Go", "Next.js", "Tailwind CSS", "supabase"],
-      liveUrl: "",
+      liveUrl: "https://qrsona.vercel.app/",
       githubUrl: "https://github.com/furuyashikiiori/camp-07",
       featured: true,
       detailedDescription:
-        "2025年7月開催技育CAMPハッカソンで制作\n\n出会いをを思い出だけに留めておくのは勿体無いQRコードをかざすだけで思い出から繋がりに変える情報プラットホーム\nQRコードで読み取るだけであなたのペルソナを簡単にシェア",
-      pdfUrl: "/documents/QRsona.pdf",
+        "2025年7月開催技育CAMPハッカソンで制作\n\n出会いをを思い出だけに留めておくのは勿体無いQRコードをかざすだけで思い出から繋がりに変える情報プラットホーム\nQRコードで読み取るだけであなたのペルソナを簡単にシェア\n\nhttps://www.canva.com/design/DAGr7OrXXr0/hgjbvRPBB3HYp71855glcg/view?utm_content=DAGr7OrXXr0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9b30593cd2#1",
+      pdfUrl: "/documents/qrsona.pdf",
     },
     {
       id: 2,
