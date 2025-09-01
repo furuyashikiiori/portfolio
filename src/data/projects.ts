@@ -3,24 +3,36 @@ export const projectsData = {
   featuredProjects: [
     {
       id: 1,
-      title: "ECプラットフォーム",
-      description: "Next.jsで構築されたモダンなECプラットフォーム",
-      image: "🛒",
-      technologies: ["Next.js", "TypeScript", "Stripe"]
+      title: "Autofolio",
+      description:
+        "フォームに答えるだけで誰でも簡単にポートフォリオがつくれる！",
+      image: "",
+      previewImage: "/images/projects/autofolio.png",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
     },
     {
       id: 2,
-      title: "タスク管理アプリ",
-      description: "リアルタイム更新機能を備えた協働アプリ",
+      title: "異世界レシピ 〜その食材異世界へ旅立たせよう〜",
+      description: "冷蔵庫の在庫 × 異世界のレシピ",
       image: "📋",
-      technologies: ["React", "Node.js", "Socket.io"]
+      previewImage: "/images/projects/異世界レシピ.png",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Python",
+        "FastAPI",
+        "Docker",
+        "Gemini API",
+      ],
     },
     {
       id: 3,
-      title: "天気ダッシュボード",
-      description: "インタラクティブチャートで気象情報を表示",
+      title: "ポートフォリオ",
+      description: "おりぃのポートフォリオサイト。ちょうど今見てるサイトです！",
       image: "🌤️",
-      technologies: ["React", "Chart.js", "API"]
-    }
-  ]
+      previewImage: "/images/projects/portfolio.png",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    },
+  ],
 };

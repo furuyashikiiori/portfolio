@@ -1,4 +1,10 @@
+"use client";
+
 import Timeline from "../../components/Timeline";
+import AnimatedSection from "../../components/AnimatedSection";
+import AnimatedCard from "../../components/AnimatedCard";
+import AnimatedText from "../../components/AnimatedText";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   const timelineItems = [
@@ -23,8 +29,16 @@ export default function Experience() {
         "例）じゃがいも、みそ、ヨーグルト → 「北東フェロー諸島・聖ミルダ神殿で朝に食される、冷製味噌ジャガカッテージポタージュ」",
         "さらに、他のユーザーが生成した“空想グルメ”もSNS風に閲覧・共有可能。",
       ],
-      technologies: ["Next.js", "tailwindcss", "FastAPI", "Langn", "PostgreSQL", "Docker", "Gemini"],
-      type: "work" as const
+      technologies: [
+        "Next.js",
+        "tailwindcss",
+        "FastAPI",
+        "Langn",
+        "PostgreSQL",
+        "Docker",
+        "Gemini",
+      ],
+      type: "work" as const,
     },
     {
       date: "2024年7月 - 現在",
@@ -34,10 +48,10 @@ export default function Experience() {
         "小・中学生向けのプログラミング教育を担当",
         "Pythonを使用した基礎的なプログラミングスキルの指導",
         "生徒の興味を引き出すためのインタラクティブな授業を設計",
-        "生徒の理解度に応じた個別指導を実施"
+        "生徒の理解度に応じた個別指導を実施",
       ],
       technologies: ["Python"],
-      type: "work" as const
+      type: "work" as const,
     },
     {
       date: "2023年6月",
@@ -50,7 +64,7 @@ export default function Experience() {
         "オープンキャンパスに来てくれた高校生に向けて研究内容を発表",
       ],
       technologies: ["Python"],
-      type: "work" as const
+      type: "work" as const,
     },
     {
       date: "2023年4月 - 現在",
@@ -62,7 +76,7 @@ export default function Experience() {
         "チームプロジェクトでの協力とコミュニケーションスキルを向上",
       ],
       technologies: ["Python", "PHP"],
-      type: "education" as const
+      type: "education" as const,
     },
     {
       date: "2020年4月 - 2023年3月",
@@ -72,8 +86,8 @@ export default function Experience() {
         "理系を得意として、数学と物理に特に興味を持つ",
         "バドミントン部に所属し、チームワークとリーダーシップを学ぶ",
       ],
-      type: "education" as const
-    }
+      type: "education" as const,
+    },
   ];
 
   const certifications = [
@@ -82,55 +96,81 @@ export default function Experience() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center">
+    <div className='container mx-auto px-4 py-16'>
+      <div className='max-w-6xl mx-auto'>
+        <AnimatedText className='text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-center'>
           経歴
-        </h1>
+        </AnimatedText>
 
-        <p className="text-xl text-gray-600 mb-16 text-center max-w-3xl mx-auto">
+        <AnimatedSection
+          delay={0.2}
+          className='text-xl text-gray-600 mb-16 text-center max-w-3xl mx-auto'
+        >
           私のこれまでの歩み。成長、学習、
           様々なプロジェクトやチームへの貢献を時系列でご紹介します。
-        </p>
+        </AnimatedSection>
 
         {/* Timeline */}
-        <div className="mb-16">
+        <AnimatedSection delay={0.4} className='mb-16'>
           <Timeline items={timelineItems} />
-        </div>
+        </AnimatedSection>
 
         {/* Certifications */}
-        <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg p-8">
-          <h2 className="text-3xl font-semibold text-gray-900 mb-6 text-center">認定・資格</h2>
-          <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+        <AnimatedCard
+          delay={0.6}
+          className='bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg p-8'
+        >
+          <h2 className='text-3xl font-semibold text-gray-900 mb-6 text-center'>
+            認定・資格
+          </h2>
+          <div className='grid md:grid-cols-2 gap-4 max-w-2xl mx-auto'>
             {certifications.map((cert, index) => (
-              <div key={index} className="flex items-center bg-white p-4 rounded-lg shadow-sm">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-3 flex-shrink-0"></div>
-                <span className="text-gray-700 font-medium">{cert}</span>
-              </div>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className='flex items-center bg-white p-4 rounded-lg shadow-sm'
+              >
+                <div className='w-3 h-3 bg-green-500 rounded-full mr-3 flex-shrink-0'></div>
+                <span className='text-gray-700 font-medium'>{cert}</span>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </AnimatedCard>
 
         {/* Call to action */}
-        <div className="mt-16 bg-white rounded-lg p-8 text-center shadow-md">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+        <AnimatedCard
+          delay={0.8}
+          className='mt-16 bg-white rounded-lg p-8 text-center shadow-md'
+        >
+          <h3 className='text-2xl font-semibold text-gray-900 mb-4'>
             新しい機会をお待ちしています
           </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            私は常に新しいチャレンジに取り組み、革新的なプロジェクトに貢献することに
-            ワクワクしています。私の経験があなたのチームにどのように役立つか、
-            話し合いましょう。
+          <p className='text-gray-600 mb-6 max-w-2xl mx-auto'>
+            色々技術・プロジェクトに挑戦してもっとつよつよになりたいです！！
           </p>
           <a
-            href="/contact"
-            className="inline-flex items-center bg-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-colors"
+            href='/contact'
+            className='inline-flex items-center bg-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-cyan-700 transition-colors'
           >
             お問い合わせ
-            <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <svg
+              className='w-4 h-4 ml-2'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth={2}
+                d='M9 5l7 7-7 7'
+              />
             </svg>
           </a>
-        </div>
+        </AnimatedCard>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export const skillsData = {
         { name: "Tailwind CSS", level: 50 },
         { name: "HTML5", level: 70 },
         { name: "CSS3", level: 70 },
-      ]
+      ],
     },
     {
       title: "バックエンド開発",
@@ -20,7 +20,7 @@ export const skillsData = {
         { name: "C#", level: 40 },
         { name: "PHP", level: 30 },
         { name: "PostgreSQL", level: 65 },
-      ]
+      ],
     },
     {
       title: "ツールと技術",
@@ -28,8 +28,10 @@ export const skillsData = {
         { name: "Git", level: 60 },
         { name: "Docker", level: 40 },
         { name: "AWS", level: 5 },
-      ]
-    }
+        { name: "supabase", level: 30 },
+        { name: "vercel", level: 20 },
+      ],
+    },
   ],
   // ホームページで表示される主要スキル（上位6つ）
   topSkills: [
@@ -38,7 +40,7 @@ export const skillsData = {
     { name: "TypeScript", level: 70 },
     { name: "Node.js", level: 30 },
     { name: "Python", level: 80 },
-    { name: "Git", level: 60 }
+    { name: "Git", level: 60 },
   ],
   learningSkills: [
     "Pythonでの機械学習",
@@ -51,5 +53,5 @@ export const skillsData = {
     "チームコラボレーション",
     "プロジェクト管理",
     "技術ライティング",
-  ]
+  ],
 };
