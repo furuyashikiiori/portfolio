@@ -9,6 +9,18 @@ import { motion } from "framer-motion";
 export default function Experience() {
   const timelineItems = [
     {
+      date: "2025年8月",
+      title: "株式会社ギフティ インターンシップ",
+      subtitle: "giftee",
+      description: [
+        "要件定義から設計・実装まで、Webアプリケーション開発の全工程を体験できる3日間のインターンシップ",
+        "本インターンでは、実際に開発しているプロダクトとほぼ同等のeギフト販売サイトを題材に、個人で機能開発に取り組みました",
+        "最終日には成果発表の場もあり、エンジニアメンターによるフィードバックも受けられました。",
+      ],
+      technologies: ["Ruby on rails"],
+      type: "work" as const
+    },
+    {
       date: "2025年6月",
       title: "技育CAMP2025 Vol.4 努力賞 受賞",
       subtitle: "異世界レシピ",
