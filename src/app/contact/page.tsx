@@ -1,30 +1,6 @@
 "use client";
 
-import { useState } from "react";
-
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("メッセージありがとうございます！すぐにお返事いたします。");
-    setFormData({ name: "", email: "", subject: "", message: "" });
-  };
 
   const contactInfo = [
     {
@@ -96,9 +72,9 @@ export default function Contact() {
           ご質問がある場合や、単にお話してみたい場合でも、お気軽にお声がけください！
         </p>
 
-        <div className='grid lg:grid-cols-2 gap-12'>
+        <div className='max-w-4xl mx-auto'>
           <div>
-            <h2 className='text-2xl font-semibold text-gray-900 mb-6'>
+            <h2 className='text-2xl font-semibold text-gray-900 mb-6 text-center'>
               連絡先情報
             </h2>
             <div className='space-y-6 mb-8'>
@@ -176,99 +152,6 @@ export default function Contact() {
             </div>
           </div>
 
-          <div>
-            <h2 className='text-2xl font-semibold text-gray-900 mb-6'>
-              メッセージを送る
-            </h2>
-            <form
-              onSubmit={handleSubmit}
-              className='bg-white p-6 rounded-lg shadow-md'
-            >
-              <div className='grid md:grid-cols-2 gap-4 mb-4'>
-                <div>
-                  <label
-                    htmlFor='name'
-                    className='block text-sm font-medium text-gray-700 mb-2'
-                  >
-                    お名前 *
-                  </label>
-                  <input
-                    type='text'
-                    id='name'
-                    name='name'
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500'
-                    placeholder='お名前'
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor='email'
-                    className='block text-sm font-medium text-gray-700 mb-2'
-                  >
-                    メールアドレス *
-                  </label>
-                  <input
-                    type='email'
-                    id='email'
-                    name='email'
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500'
-                    placeholder='your.email@example.com'
-                  />
-                </div>
-              </div>
-
-              <div className='mb-4'>
-                <label
-                  htmlFor='subject'
-                  className='block text-sm font-medium text-gray-700 mb-2'
-                >
-                  件名 *
-                </label>
-                <input
-                  type='text'
-                  id='subject'
-                  name='subject'
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500'
-                  placeholder='どのような用件でしょうか？'
-                />
-              </div>
-
-              <div className='mb-6'>
-                <label
-                  htmlFor='message'
-                  className='block text-sm font-medium text-gray-700 mb-2'
-                >
-                  メッセージ *
-                </label>
-                <textarea
-                  id='message'
-                  name='message'
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 resize-vertical'
-                  placeholder='プロジェクトについて教えてください、またはお気軽にご挨拶ください！'
-                ></textarea>
-              </div>
-
-              <button
-                type='submit'
-                className='w-full bg-primary-600 text-white py-3 px-6 rounded-md font-semibold hover:bg-primary-700 transition-colors'
-              >
-                メッセージを送信
-              </button>
-            </form>
-          </div>
         </div>
 
         <div className='mt-16 text-center bg-gray-100 p-8 rounded-lg'>
