@@ -9,6 +9,18 @@ import { motion } from "framer-motion";
 export default function Experience() {
   const timelineItems = [
     {
+      date: "2026年1月 - 現在",
+      title: "株式会社CyberBuzz インターンシップ",
+      subtitle: "cyberbuzz",
+      description: [
+        "社内ツールの機能開発を担当するインターンシップ",
+        "Next.js,Go,AWSを使用して、社内ツールの機能開発に取り組む",
+        "TikTokやInstagramなどのAPIを活用した機能の実装や、既存機能の改善を行なっています",
+      ],
+      technologies: ["Next.js", "Go", "AWS"],
+      type: "work" as const,
+    },
+    {
       date: "2025年8月",
       title: "株式会社ギフティ インターンシップ",
       subtitle: "giftee",
@@ -18,7 +30,7 @@ export default function Experience() {
         "最終日には成果発表の場もあり、エンジニアメンターによるフィードバックも受けられました。",
       ],
       technologies: ["Ruby on rails"],
-      type: "work" as const
+      type: "work" as const,
     },
     {
       date: "2025年6月",
@@ -41,7 +53,7 @@ export default function Experience() {
       type: "work" as const,
     },
     {
-      date: "2024年7月 - 現在",
+      date: "2024年7月 - 2026年1月",
       title: "やる気スイッチグループ Hallo 講師",
       subtitle: "プログラミング教室",
       description: [

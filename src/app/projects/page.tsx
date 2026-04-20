@@ -15,6 +15,21 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: "ScheduleDraft | シンプルな予定テキスト作成ツール",
+      description:
+        "6ステップで、簡単にカレンダーから文書を作成できます！生成されたテキストをコピーして、SlackやLINEに貼り付けるだけ！",
+      image: "📅",
+      previewImage: "/images/projects/ScheduleDraft.png",
+      technologies: ["Next.js", "Tailwind CSS"],
+      liveUrl: "https://scheduledraft.vercel.app/",
+      githubUrl: "https://github.com/furuyashikiiori/scheduledraft",
+      featured: true,
+      detailedDescription:
+        "個人制作\n\nちょっと面倒だと思うあの作業に！\nカレンダーから選ぶだけで簡単に予定をシェア！",
+      pdfUrl: "",
+    },
+    {
+      id: 2,
       title: "QRsona - QRコード✖️persona",
       description:
         "出会いをを思い出だけに留めておくのは勿体無い。QRコードをかざすだけで思い出から繋がりに変える情報プラットホーム",
@@ -29,7 +44,7 @@ export default function Projects() {
       pdfUrl: "/documents/qrsona.pdf",
     },
     {
-      id: 2,
+      id: 3,
       title: "Autofolio",
       description:
         "フォームに答えるだけで誰でも簡単にポートフォリオがつくれる！",
@@ -59,7 +74,7 @@ export default function Projects() {
       pdfUrl: "",
     },
     {
-      id: 3,
+      id: 5,
       title: "異世界レシピ 〜その食材異世界へ旅立たせよう〜",
       description: "冷蔵庫の在庫 × 異世界のレシピ",
       image: "📋",
@@ -81,7 +96,7 @@ export default function Projects() {
       pdfUrl: "/documents/異世界レシピ.pdf",
     },
     {
-      id: 5,
+      id: 6,
       title: "POP Share Library",
       description:
         "はじめてのハッカソンで制作した、推し活動グッズの管理アプリケーション",
@@ -96,7 +111,7 @@ export default function Projects() {
       pdfUrl: "/documents/popsharelibrary.pdf",
     },
     {
-      id: 6,
+      id: 7,
       title: "UniTASK Achievement",
       description: "タスク管理✖️育成ゲーム",
       image: "💼",
@@ -110,7 +125,7 @@ export default function Projects() {
       pdfUrl: "/documents/unitask.pdf",
     },
     {
-      id: 7,
+      id: 8,
       title: "Hang out Share",
       description:
         "手軽に誘いたい！充実した生活を送りたい！を実現するWebアプリサービス",
@@ -131,7 +146,7 @@ export default function Projects() {
       pdfUrl: "/documents/hang-out-share.pdf",
     },
     {
-      id: 8,
+      id: 9,
       title: "NomiSearch",
       description: "あなたにあった最高の一杯を",
       image: "🌤️",
