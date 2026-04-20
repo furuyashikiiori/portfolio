@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 interface TimelineItem {
   date: string;
   title: string;
@@ -18,7 +20,14 @@ export default function Timeline({ items }: TimelineProps) {
       <div className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 bg-cyan-200 transform md:-translate-x-px"></div>
 
       {items.map((item, index) => (
-        <div key={index} className="relative mb-12 md:mb-16">
+        <motion.div 
+          key={index} 
+          className="relative mb-12 md:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {/* Timeline point */}
           <div className={`absolute left-2 md:left-1/2 w-4 h-4 rounded-full border-4 border-white shadow-lg transform md:-translate-x-1/2 ${item.title.includes('受賞') || item.title.includes('賞')
               ? 'bg-amber-500'
@@ -101,7 +110,7 @@ export default function Timeline({ items }: TimelineProps) {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

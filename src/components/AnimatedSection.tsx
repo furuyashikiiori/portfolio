@@ -29,6 +29,11 @@ const AnimatedSection = ({
         opacity: 0, 
         ...directions[direction]
       }}
+      animate={{ 
+        opacity: 1, 
+        y: 0, 
+        x: 0 
+      }}
       whileInView={{ 
         opacity: 1, 
         y: 0, 
